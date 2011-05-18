@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>History Test</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js" type="text/javascript"></script>
+<script src="../jquery.hashchange-1.0.0.js" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+$(window).hashchange(function(ev) {
+	var hash = location.hash;
+	$('body').append('<br /><span>hashchange: "'+hash+'"</span>');
+	$('p').css({background: 'none'});
+	if (hash == '') return;
+	$('#p'+hash.replace('#','')).css({background: 'yellow'});
+});
+$(function() { $(window).trigger('hashchange') } );
+//]]>
+</script>
+</head>
+<body>
+<p id="para1">Paragraph 1</p>
+<p id="para2">Paragraph 2</p>
+<p id="para3">Paragraph 3</p>
+<a id="para1link" href="#ara1">Highlight Para1</a>
+<a id="para2link" href="#ara2">Highlight Para2</a>
+<a id="para3link" href="#ara3">Highlight Para3</a>
+</body>
+</html>
